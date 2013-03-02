@@ -1,13 +1,15 @@
-# com.ifesdjeen.utils
+# Utils
 
-A Clojure library designed to ... well, that part is up to you.
+Swiss-army knife.
 
-## Usage
+# Usage
 
-FIXME
+## Ring Buffer
+
+TBD
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 Alex P (stylefruits.de)
 
 Distributed under the Eclipse Public License, the same as Clojure.
