@@ -4,7 +4,11 @@
   It acts like an immutable data structure, even though has an Java Array underneath.
 
   We've decided not to implement IPersistentStack interface, since in different use cases
-  pop and peek may have different meanings. Instead, we implement `all-new` and `all-old`." }
+  pop and peek may have different meanings. Instead, we implement `all-new` and `all-old`.
+
+  Implements ISeq and Indexed interface with a least-surprise prinicpe.
+
+  Supports `first`, `seq`, `next`, `cons` from ISeq, `nth` from Indexed, `count` from Counted" }
   com.ifesdjeen.utils.circular-buffer)
 
 (defprotocol ICircularBuffer
