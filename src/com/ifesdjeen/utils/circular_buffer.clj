@@ -58,7 +58,8 @@ so that current element would get to old generation and get overriden during nex
 
   ICircularBuffer
   (full? [_]
-    (> (rem idx max-size) 0))
+    (println idx)
+    (> (quot idx max-size) 0))
 
   (index [_]
     (if (>= idx max-size)
