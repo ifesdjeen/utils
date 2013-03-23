@@ -70,3 +70,9 @@
   Object
   (toString [_]
     coll))
+
+(defn expiring-buffer
+  ([expire-fn coll]
+     (expiring-buffer expire-fn coll nil))
+  ([expire-fn coll _meta]
+     (ExpiringBuffer. expire-fn coll _meta)))
