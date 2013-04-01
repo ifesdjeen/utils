@@ -4,9 +4,9 @@
 
 (deftest round-to-test
   (testing "Hour rounding"
-    (is (= 1364842800000 (.getTime (round-to (java.util.Date. 1364844423553) precidion-hour)))))
+    (is (= 1364842800000 (.getTime (round-to (java.util.Date. 1364844423553) precision-hour)))))
   (testing "Minute rounding"
-    (is (= 1364844420000 (.getTime (round-to (java.util.Date. 1364844423553) precidion-minute))))))
+    (is (= 1364844420000 (.getTime (round-to (java.util.Date. 1364844423553) precision-minute))))))
 
 (deftest group-aggregate-test
   (let [series [{:date (java.util.Date. 1364842800000) :value 1}
