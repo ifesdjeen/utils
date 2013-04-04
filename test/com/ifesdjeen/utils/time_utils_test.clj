@@ -21,4 +21,4 @@
                 {:date (java.util.Date. 1364838610000) :value 2}
                 {:date (java.util.Date. 1364838620000) :value 8}]]
     (is (= [8 4 11]
-           (group-aggregate series :date :value precision-hour +)))))
+           (map second (group-aggregate series :date :value precision-hour +))))))

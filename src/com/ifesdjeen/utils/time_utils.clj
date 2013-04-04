@@ -20,7 +20,8 @@
 
 (defn group-aggregate
   [series accessor-date accessor-val precision agg]
-  (map
-   (fn [[_ c]]
-     (reduce agg (map accessor-val c)))
-   (group-by #(round-to (accessor-date %) precision) series)))
+  (into {}
+        (map
+         (fn [[k c]]
+           [k (reduce agg (map accessor-val c))])
+         (group-by #(round-to (accessor-date %) precision) series))))
