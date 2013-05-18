@@ -72,6 +72,13 @@ Now, you may use `pausable-thread` to operate current thread state. You can call
 
 `park` is only used internally. You may want to use it if you roll out your own version of pausable.
 
+## Building docs
+
+  * Run `lein doc` to build docs. 
+  * Save `doc` directory somewhere
+  * Switch to `gh-pages` branch
+  * Replace `codox` directory contents with contents of rebuilt `doc`
+
 ## License
 
 Copyright © 2013 Alex P (stylefruits.de)
