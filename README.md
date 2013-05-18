@@ -52,6 +52,26 @@ subvectors out of impementation, some operations are linear time.
 ;; [30 40]
 ```
 
+## Concurrent utils, pausable thread
+
+Cooperative Thread implementation, as per recommendations stated out [here](http://docs.oracle.com/javase/1.5.0/docs/guide/misc/threadPrimitiveDeprecation.html).
+
+`pausable` returns an thread manipulation object:
+
+```clojure
+(def pausable-thread (pausable (fn [] (dowork))))
+```
+
+Now, you may use `pausable-thread` to operate current thread state. You can call:
+
+  * `pause` to pause thread
+  * `resume` to resume paused thread
+  * `abort!` to abort thread
+  * `running?` to understand wether thread should be currently running or no
+  * `aborted?` wether thread was aborted or no
+
+`park` is only used internally. You may want to use it if you roll out your own version of pausable.
+
 ## License
 
 Copyright © 2013 Alex P (stylefruits.de)
