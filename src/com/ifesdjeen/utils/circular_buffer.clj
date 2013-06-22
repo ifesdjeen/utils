@@ -73,7 +73,7 @@ so that current element would get to old generation and get overriden during nex
     (.nth this (index this)))
   (to-vec
     [rb]
-    (vec (.arr rb)))
+    (vec (concat (all-old rb) (all-new rb))))
   (rounds [_]
     (quot idx max-size))
 

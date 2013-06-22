@@ -8,15 +8,15 @@
       (is (nil? (first cb)))
       ;; (is (= '(2 nil nil nil nil) (conj cb 2)))
       (is (= 2 (first (conj cb 2))))
-      (is (= [2 nil nil nil nil] (to-vec (conj cb 2))))
-      (is (= [1 2 nil nil nil] (to-vec (conj (conj cb 1) 2))))
+      (is (= [2] (to-vec (conj cb 2))))
+      (is (= [1 2] (to-vec (conj (conj cb 1) 2))))
       (is (= '(2 nil nil nil) (next (conj (conj cb 1) 2))))
 
 
       (is (= (-> cb
                  (conj 1) (conj 2) (conj 3) (conj 4) (conj 5) (conj 6) (conj 7)
                  to-vec)
-             [6 7 3 4 5]))
+             [3 4 5 6 7]))
 
       (let [cb2 (conj (conj cb 1) 2)]
         (is (= 2 (nth cb2 1)))
@@ -36,8 +36,8 @@
               (conj 1) (conj 2) (conj 3) (conj 4) (conj 5) (conj 6)
               full?)))
     (let [cb (-> (circular-buffer 5) (conj 1) (conj 2) (conj 3) (conj 4) (conj 5) (conj 6))]
-      (is (= [6 2 100 4 5] (to-vec (conj (increment cb) 100))))
-      (is (= [100 2 3 4 5] (to-vec (conj (decrement cb) 100))))
+      (is (= [4 5 6 2 100] (to-vec (conj (increment cb) 100))))
+      (is (= [2 3 4 5 100] (to-vec (conj (decrement cb) 100))))
       (is (= [6 2 3 4 100] (-> cb decrement decrement (conj 100) to-vec)))
       (is (= [nil nil nil nil 100] (-> (circular-buffer 5) decrement (conj 100) to-vec))))
 
