@@ -81,6 +81,6 @@ Now, you may use `pausable-thread` to operate current thread state. You can call
 
 ## License
 
-Copyright © 2013 Alex P (stylefruits.de)
+Copyright © 2013 Alex P 
 
 Distributed under the Eclipse Public License, the same as Clojure.
