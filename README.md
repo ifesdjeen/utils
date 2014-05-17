@@ -6,8 +6,8 @@ Swiss-army knife.
 
 ## Circular Buffer
 
-Ciruclar buffer is FIFO buffer with a fixed size, that replaces it's oldest
-elements when if it's full. Useful for monitoring, and inter-thread communication.
+Circular buffer is a FIFO buffer with a fixed size, that replaces its oldest
+elements when it's full. Useful for monitoring, and inter-thread communication.
 
 Usage:
 
@@ -27,7 +27,7 @@ Usage:
 
 ## Expiring buffer
 
-Expiring buffer is an unbound FIFO buffer, that supports expiry based on a funciton.
+Expiring buffer is an unbound FIFO buffer, that supports expiry based on a function.
 Implementation doesn't support timing expiry itself, since it's not always clear what
 would be the best way to expire different buffers.
 
@@ -37,7 +37,7 @@ or implement your own expiring buffer that will look through all the elements du
 Nevertheless, that'd be an expensive operation.
 
 Currently expire operation is synchronous. Because we operate on Vectors, and avoid leaking
-subvectors out of impementation, some operations are linear time.
+subvectors out of implementation, some operations are linear time.
 
 ```clojure
 (def buf (expiring-buffer (fn [a] (>= 20 a)) [10 20 30 40]))
@@ -67,14 +67,14 @@ Now, you may use `pausable-thread` to operate current thread state. You can call
   * `pause` to pause thread
   * `resume` to resume paused thread
   * `abort!` to abort thread
-  * `running?` to understand wether thread should be currently running or no
-  * `aborted?` wether thread was aborted or no
+  * `running?` to understand wether thread should be currently running or not
+  * `aborted?` wether thread was aborted or not
 
 `park` is only used internally. You may want to use it if you roll out your own version of pausable.
 
 ## Building docs
 
-  * Run `lein doc` to build docs. 
+  * Run `lein doc` to build docs
   * Save `doc` directory somewhere
   * Switch to `gh-pages` branch
   * Replace `codox` directory contents with contents of rebuilt `doc`
